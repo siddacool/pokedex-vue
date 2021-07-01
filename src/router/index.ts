@@ -10,6 +10,11 @@ const routes = [
   },
   {
     path: '/details',
+    name: 'Details Nope',
+    redirect: { name: 'Home' },
+  },
+  {
+    path: '/details/:id',
     name: 'Details',
     component: defineAsyncComponent(() => import('pages/Details.vue')),
   },

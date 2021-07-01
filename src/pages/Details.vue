@@ -1,12 +1,19 @@
 <template>
-  <div class="details">Details</div>
+  <div class="details">Details {{ id }}</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
 export default defineComponent({
   setup: () => {
-    console.log('yo');
+    const route = useRoute();
+    const { id = '' } = route?.params;
+
+    return {
+      id,
+    };
   },
 });
 </script>
