@@ -11,4 +11,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home {
+  font-size: 18px;
+}
+</style>
