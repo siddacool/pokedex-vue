@@ -12,21 +12,21 @@
       "esnext",
       "dom"
     ],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "assets": [
-        "/assets"
+      "assets/*": [
+        "src/assets/*"
       ],
-      "router": [
-        "/router"
+      "router/*": [
+        "src/router/*"
       ],
-      "components": [
-        "/components"
+      "components/*": [
+        "src/components/*"
       ],
-      "pages": [
-        "/pages"
+      "pages/*": [
+        "src/pages/*"
       ],
-    }
+    },
   },
   "include": [
     "src/**/*.ts",
