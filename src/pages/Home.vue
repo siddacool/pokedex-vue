@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>PokeDex</h1>
+    <h1 class="text-4xl pb-4 text-center">PokeDex</h1>
     <Search />
   </div>
 </template>
@@ -25,10 +25,6 @@ export default defineComponent({
 
   @media (min-width: 900px) {
     align-items: center;
-  }
-
-  h1 {
-    text-align: center;
   }
 }
 </style>

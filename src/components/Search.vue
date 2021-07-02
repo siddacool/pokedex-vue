@@ -1,6 +1,10 @@
 <template>
-  <div class="search">
-    <input type="text" placeholder="search" />
+  <div class="search h-12 overflow-hidden rounded-md border-gray-300 border">
+    <input
+      type="text"
+      placeholder="search"
+      class="h-full w-full outline-none p-3"
+    />
   </div>
 </template>
 
@@ -18,24 +22,9 @@ export default defineComponent({
 .search {
   width: 100%;
   max-width: 700px;
-  height: 40px;
-  background-color: #fff;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid #dcdcdc;
 
   @media (min-width: 900px) {
     max-width: 400px;
-  }
-
-  input {
-    width: 100%;
-    background-color: transparent;
-    height: 100%;
-    outline: none;
-    border: none;
-    padding: 0 16px;
-    font-size: 1rem;
   }
 }
 </style>

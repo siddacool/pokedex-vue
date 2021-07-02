@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <main class="p-4 pt-16 h-screen overflow-y-auto bg-gray-100">
+    <router-view />
+  </main>
 </template>
 
 <script lang="ts">
@@ -11,10 +13,6 @@ export default defineComponent({
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -28,9 +26,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   height: 100vh;
-  overflow-y: auto;
-  background-color: #ececec;
-  padding: 16px;
-  padding-top: 32px;
+  overflow-y: hidden;
 }
 </style>
