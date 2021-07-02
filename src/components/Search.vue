@@ -4,16 +4,33 @@
       type="text"
       placeholder="search"
       class="h-full w-full outline-none p-3"
+      :disabled="pokemon.isFetching"
+      @keydown.enter="fireSearch"
+      v-model="value"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { usePokemon } from 'store/pokemon';
+import { useSearch } from 'store/search';
 
 export default defineComponent({
   setup: () => {
-    console.log('yo');
+    const pokemon = usePokemon();
+    const search = useSearch();
+    const value = ref('');
+
+    const fireSearch = () => {
+      search.fireSearch(value.value);
+    };
+
+    return {
+      pokemon,
+      fireSearch,
+      value,
+    };
   },
 });
 </script>

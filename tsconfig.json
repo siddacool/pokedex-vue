@@ -14,11 +14,20 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "constants/*": [
+        "src/constants/*"
+      ],
       "assets/*": [
         "src/assets/*"
       ],
       "router/*": [
         "src/router/*"
+      ],
+      "api/*": [
+        "src/api/*"
+      ],
+      "store/*": [
+        "src/store/*"
       ],
       "components/*": [
         "src/components/*"
