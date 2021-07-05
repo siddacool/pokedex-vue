@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1 class="text-4xl pb-4 text-center">PokeDex</h1>
     <Search />
     <SearchResults />
   </div>
@@ -9,14 +8,17 @@
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
 import { usePokemon } from 'store/pokemon';
+import { useSearch } from 'store/search';
 import Search from 'components/Search.vue';
 import SearchResults from 'components/SearchResults.vue';
 
 export default defineComponent({
   setup: () => {
     const pokemon = usePokemon();
+    const search = useSearch();
 
     onMounted(() => {
+      search.clearSearch();
       pokemon.fetch();
     });
 

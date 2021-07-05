@@ -1,5 +1,5 @@
 <template>
-  <ul
+  <div
     class="
       search-result
       bg-white
@@ -16,25 +16,22 @@
       :name="poke.name"
       :url="poke.url"
     />
-  </ul>
+  </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue';
 import { usePokemon } from 'store/pokemon';
 import { useSearch } from 'store/search';
-import { PokemonDetails } from 'constants/types';
+import { Pokemon } from 'constants/types';
 import SearchResult from 'components/SearchResult.vue';
 
-const getFilteredPokemon = (
-  search = '',
-  data: PokemonDetails[] = [],
-): PokemonDetails[] => {
+const getFilteredPokemon = (search = '', data: Pokemon[] = []): Pokemon[] => {
   if (search.trim() === '') {
     return [];
   }
 
-  const list = data.filter((d: PokemonDetails) =>
+  const list = data.filter((d: Pokemon) =>
     d.name.toLowerCase().startsWith(search.toLowerCase()),
   );
 

@@ -1,12 +1,10 @@
 <template>
-  <li>
-    <router-link
-      :to="{ name: 'Details', params: { id: name } }"
-      class="block p-2 hover:bg-gray-200 first:pt-4 last:pb-4"
-    >
-      {{ name }}
-    </router-link>
-  </li>
+  <router-link
+    :to="{ name: 'Details', params: { id: name } }"
+    class="block p-2 hover:bg-gray-200 first:pt-4 last:pb-4"
+  >
+    {{ name }}
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -17,7 +15,6 @@ export default defineComponent({
     name: String,
     url: String,
   },
-  setup() {},
 });
 </script>
 

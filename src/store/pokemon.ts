@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
-import { PokemonDetails } from 'constants/types';
+import { Pokemon } from 'constants/types';
 
 interface IsState {
   isFetching: boolean;
-  data: PokemonDetails[];
+  data: Pokemon[];
 }
 
 export const usePokemon = defineStore({

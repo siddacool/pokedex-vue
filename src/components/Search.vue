@@ -5,7 +5,7 @@
       placeholder="search"
       class="h-full w-full outline-none p-3"
       :disabled="pokemon.isFetching"
-      @keydown.enter="fireSearch"
+      @input="fireSearch"
       v-model="value"
     />
   </div>

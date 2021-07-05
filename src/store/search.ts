@@ -15,5 +15,8 @@ export const useSearch = defineStore({
     fireSearch: function (payload: string) {
       this.term = payload;
     },
+    clearSearch: function () {
+      this.term = '';
+    },
   },
 });

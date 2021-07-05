@@ -1,14 +1,19 @@
 <template>
-  <main class="p-4 pt-16 h-screen overflow-y-auto bg-gray-100">
-    <router-view />
-  </main>
+  <div class="p-4 pt-16 h-screen overflow-y-auto bg-gray-100">
+    <TheHeader />
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import TheHeader from 'components/TheHeader.vue';
 
 export default defineComponent({
   name: 'App',
+  components: { TheHeader },
 });
 </script>
 
