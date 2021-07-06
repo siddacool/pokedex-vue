@@ -20,16 +20,14 @@ export const usePokemonDetails = defineStore({
 
       const details = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then((response) => response.json())
-        .then(({ results = {} }) => {
-          return results;
+        .then((data) => {
+          return data;
         });
 
-      // const { id } = details;
-      // const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+      const { id: idFromDetails } = details;
+      const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${idFromDetails}.svg`;
 
-      // details.image = image;
-
-      console.log(details);
+      details.image = image;
 
       this.data = details;
       this.isFetching = false;
