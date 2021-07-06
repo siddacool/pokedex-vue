@@ -32,7 +32,7 @@ const getFilteredPokemon = (search = '', data: Pokemon[] = []): Pokemon[] => {
   }
 
   const list = data.filter((d: Pokemon) =>
-    d.name.toLowerCase().startsWith(search.toLowerCase()),
+    d.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return list;
