@@ -9,6 +9,7 @@
       text-center
       overflow-hidden
       rounded-md
+      border-gray-300 border
     "
   >
     <img :src="image" :alt="name" class="inline-block" />

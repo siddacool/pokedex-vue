@@ -32,5 +32,8 @@ export const usePokemonDetails = defineStore({
       this.data = details;
       this.isFetching = false;
     },
+    clear() {
+      this.data = {};
+    },
   },
 });

@@ -27,6 +27,7 @@ export default defineComponent({
     const pokemonDetails = usePokemonDetails();
 
     onMounted(() => {
+      pokemonDetails.clear();
       pokemonDetails.fetch(id);
     });
 
