@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{ name: 'Details', params: { id: name } }"
+    :to="{ name: 'Details', params: { id } }"
     class="block p-2 hover:bg-gray-200 first:pt-4 last:pb-4"
   >
     {{ name }}
@@ -8,12 +8,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 export default defineComponent({
   props: {
-    name: String,
-    url: String,
+    name: {
+      type: String as PropType<string>,
+      required: true,
+    },
+    url: {
+      type: String as PropType<string>,
+      required: true,
+    },
+  },
+  setup(props) {
+    const id = props.url
+      .replace('https://pokeapi.co/api/v2/pokemon/', '')
+      .replace('/', '');
+
+    console.log(id);
+
+    return {
+      id,
+    };
   },
 });
 </script>

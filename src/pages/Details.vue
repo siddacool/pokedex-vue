@@ -1,43 +1,44 @@
 <template>
   <div class="details">
     <Box class="text-center">
-      <router-link :to="{ name: 'Home' }" class="inline-flex">
-        <svg
-          class="w-6 h-6"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-        Back
-      </router-link>
-
+      <BackButton />
       <div>
         {{ id }}
       </div>
+
+      {{ details }}
     </Box>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import Box from 'components/Box.vue';
+import BackButton from 'components/BackButton.vue';
+import { usePokemonDetails } from 'store/pokemon-details';
 
 export default defineComponent({
   setup: () => {
     const route = useRoute();
     const { id = '' } = route?.params;
+    const pokemonDetails = usePokemonDetails();
+    let details = ref({});
+
+    onMounted(() => {
+      pokemonDetails.fetch(id);
+
+      details.value = pokemonDetails.data;
+    });
+
+    console.log(pokemonDetails);
+
     return {
       id,
+      details,
     };
   },
-  components: { Box },
+  components: { Box, BackButton },
 });
 </script>
 
