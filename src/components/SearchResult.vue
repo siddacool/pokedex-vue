@@ -3,20 +3,17 @@
     :to="{ name: 'Details', params: { id } }"
     class="block p-2 hover:bg-gray-200 first:pt-4 last:pb-4"
   >
-    {{ nameComputed[0] }}<b>{{ search.term }}</b
-    >{{ nameComputed[1] }}
+    <SearchResultName :name="name" :search="search.term" />
   </router-link>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { useSearch } from 'store/search';
+import SearchResultName from 'components/SearchResultName.vue';
 
-const getFilteredName = (search = '', name = '') => {
-  const nameReplaced = name.replace(search, '__');
-
-  return nameReplaced.split('__');
-};
+const getIdFromUrl = (url: string) =>
+  url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '');
 
 export default defineComponent({
   props: {
@@ -29,20 +26,16 @@ export default defineComponent({
       required: true,
     },
   },
+  components: {
+    SearchResultName,
+  },
   setup(props) {
-    const id = props.url
-      .replace('https://pokeapi.co/api/v2/pokemon/', '')
-      .replace('/', '');
+    const id = getIdFromUrl(props.url);
 
     const search = useSearch();
 
-    const nameComputed = computed(() =>
-      getFilteredName(search.term, props.name),
-    );
-
     return {
       id,
-      nameComputed,
       search,
     };
   },
